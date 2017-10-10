@@ -1,0 +1,21 @@
+version: '2'
+services:
+  predix:
+    build: .
+    command: bash
+    volumes:
+      - ./predix:/root/predix
+  postgres:
+    image: postgres:10.0
+    environment:
+      POSTGRES_PASSWORD: predix
+      POSTGRES_USER: predix
+      POSTGRES_DB: predix
+    volumes:
+      - ./_data:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+  pgadmin:
+    image: fenglc/pgadmin4:2.0
+    ports: 
+      - 5050:5050
