@@ -2,7 +2,7 @@ version: '2'
 services:
   predix:
     build: .
-    command: bash
+    command: tail -f /root/predix/README.md
     volumes:
       - ./predix:/root/predix
   postgres:
